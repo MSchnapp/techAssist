@@ -1,0 +1,110 @@
+* {
+    position: relative
+}
+.card {
+    background: white;
+    border: 1px solid #666;
+    width: 60%;
+    max-width: 300px;
+    text-align: center;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    border-radius: .3rem;
+    box-shadow: 2px 2px 2px rgb(100,100,100, .6);
+  }
+  
+  .tool-number {
+    color: black;
+    text-transform: uppercase;
+    font-size: 32px;
+    
+  }
+  .card-tool-number {
+    font-size: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #666;
+  }
+  .tool-identifier {
+      position: absolute;
+      display: flex;
+      flex-direction: row;
+      font-size: 15px;
+      color: red;
+      top: 0;
+      right: 0;
+      margin-right: 2px;
+  }
+  .tool-checkedOut {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin-left: 2px;
+      font-size: 15px;
+      color: blue;
+  }
+  
+  .tool-scancurrent {
+    font-size: 30px;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    padding: 10px;
+    flex: 1;
+    border-radius: 3px;
+    box-shadow: 2px 2px 2px rgb(100,100,100, .6);
+  }
+  #ronumber {
+    background-color: white;
+    font-style: oblique;
+  }
+  
+  #scantype {
+    padding-top: 5%;
+  }
+  .card-option-container {
+    display: flex;
+    border-top: 1px solid #ccc;
+  
+  }
+  
+  .card-option {
+    background: #f1f1f1;
+    padding: 5px;
+    border-right: 1px solid #ccc;
+    max-width: 95px;
+    height: 50px;
+    flex: 1;
+    padding-top: 3%;
+    font-size: 15px;
+    font-weight: bolder;
+    border-radius: 3px;
+    margin: 1px;
+    box-shadow: 2px 2px 2px rgb(100,100,100, .6);
+  }
+  
+  .card-option:last-child {
+    border-right: none;
+  }
+  
+  .card-open-modal-button {
+    background: rgb(13, 26, 115);
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px rgb(100,100,100, .6);
+  }
+  
+  .card-open-modal-button:hover {
+    opacity: 0.8;
+  }
+  
+  
+  .ReactModal__Body--open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+  

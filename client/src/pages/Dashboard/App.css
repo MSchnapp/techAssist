@@ -1,0 +1,63 @@
+* {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+
+}
+.app {
+    background-color: #eae6d4;
+    width: 100%;
+    margin: auto;
+    line-height: 1.5;
+    height: 750px;
+    overflow-x: auto;
+    
+}
+.main {
+    background-color: #eae6d4;
+    flex: 6;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+  
+}
+.belowheader {
+  display: flex;
+  margin: auto -1rem 1rem;
+}
+.page-number-button {
+    width: 50px;
+    height: 25px;
+    font-size: 20px;
+    margin: 5px;
+    border-radius: 2rem;
+    background-color: teal;
+    color: white;
+}
+.page-number-button:hover {
+    opacity: .5;
+}
+.page-button {
+    position: fixed;
+    bottom: 0px;
+    display: flex;
+    flex-direction: row;
+    background-color: #393b45;
+    width: 100%;
+    justify-content: center;
+}
+.col {
+  padding: .5rem;
+}
+.dashboard-main-tool-view {
+    margin-bottom: 30px;
+}
+
+@media only screen and (min-width: 768px){
+    .hide-desktop {
+        display: none !important;
+    }
+}

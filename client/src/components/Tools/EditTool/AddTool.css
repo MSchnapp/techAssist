@@ -1,0 +1,94 @@
+* {
+    position: relative;
+}
+button.add-tool-button{
+    height:50px;
+    width: 87%;
+    line-height:50px;
+    font-size: 30px;
+    vertical-align: middle;
+    text-align: center;
+    padding:0 10px;
+    color:#ffffff;
+    background-color: rgb(13, 26, 115);
+    position:relative;
+    display:inline-block;
+    border: 1px solid rgb(13, 26, 115);
+    margin-top: 200px;
+}
+button:active {
+    outline: none;
+    border: none;
+}
+    
+button:focus {outline:0;}
+button.add-tool-button:after{
+    position:absolute;
+    right:-21px;
+    top: -.6px;
+    content:" ";
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 25px 0 25px 20px;
+    border-color: transparent transparent transparent rgb(13, 26, 115);
+}
+
+.add-tool-button:hover {
+    opacity: 0.7;
+}
+.card-add-tool {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    justify-content: center;
+    grid-column: 1;
+    padding: 10px;
+    align-self: center;
+    
+}
+
+.card-text-inputs {
+    border: 1px;
+    border-style: solid;
+    border-color: grey;
+    border-radius: .1rem;
+    text-align: center;
+    width: 240px;
+    height: 25px;
+    margin-bottom: 12px;
+}
+
+.add-tool-form {
+    display: grid;
+    margin: 0;
+    padding: 0px;
+    border-bottom: 2px solid #666;
+
+}
+
+.cancel-button {
+    grid-column: 1;
+}
+
+.add-tool-menu-button {
+    float: right;
+    width: 75px;
+    height: 25px;
+    align-content: center;
+    border-radius: .2rem;
+    margin-top: 12px;
+    margin-right: 10px;
+    font-size: 15px;
+    background-color: teal;
+    color: white;
+}
+.add-tool-menu-button:hover {
+    opacity: .4;
+}
+.card-warning {
+    float: left;
+    color: red;
+    margin-top: 14px;
+    margin-left: 5px;
+}
