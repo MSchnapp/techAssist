@@ -25,8 +25,8 @@ class App extends React.Component {
     componentDidMount() {
         this.getDataFromDb();
         if (!this.state.intervalIsSet) {
-           let interval = setInterval(this.getDataFromDb);
-           this.setState({ intervalIsSet: interval });
+          let interval = setInterval(this.getDataFromDb);
+          this.setState({ intervalIsSet: interval });
         }
     }
 
@@ -56,6 +56,15 @@ class App extends React.Component {
         const newTool = {...tool, postscan : !tool.postscan}
         axios.put('http://localhost:3001/api/updateScanType', {
             tool: newTool})
+            .then(res => console.log(res), this.getDataFromDb())
+            .catch(err => console.log(err));
+    }
+
+    handleRoNumber = (tool) => { 
+      console.log(tool) 
+      const newTool = {...tool, roNumber : tool.roNumber}    
+        axios.put('http://localhost:3001/api/updateScanType', {
+            tool: newTool })
             .then(res => console.log(res), this.getDataFromDb())
             .catch(err => console.log(err));
     }
@@ -129,7 +138,8 @@ class App extends React.Component {
                                handlePostScan={this.handlePostScan}
                                handleScanCurrent={this.handleScanCurrent}
                                handleErrorCurrent={this.handleErrorCurrent}
-                               deleteTool={this.deleteTool} />
+                               deleteTool={this.deleteTool}
+                               handleRoNumber={this.handleRoNumber} />
         });
 
         const pageNumbers = [];

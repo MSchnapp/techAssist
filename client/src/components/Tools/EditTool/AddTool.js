@@ -9,7 +9,8 @@ const initialState = {
     error: false,
     prescan: false,
     postscan: false,
-    paired: false
+    paired: false,
+    errorID: 0,
 
 };
 
@@ -48,36 +49,36 @@ class AddTool extends React.Component {
                             style={addToolsStyle}
                             >
 
-                    <form onSubmit={this.handleSubmit} 
-                          className="input-form">
+                            <form onSubmit={this.handleSubmit} 
+                                  className="input-form">
 
-        <div className="add-tool-form">
+                                <div className="add-tool-form">
 
-            <div className="card-add-tool"> 
+                                    <div className="card-add-tool"> 
 
-                    <textarea type="text"
-                              name="toolNumber"
-                              key={this.toolName}
-                              className="card-text-inputs"
-                              placeholder="*Tool Name*"
-                              onChange={(e) => this.setState({toolName: e.target.value})}/>
-                    </div>
-                </div>
+                                        <textarea type="text"
+                                                name="toolNumber"
+                                                key={this.toolName}
+                                                className="card-text-inputs"
+                                                placeholder="*Tool Name*"
+                                                onChange={(e) => this.setState({toolName: e.target.value})}/>
+                                    </div>
+                                </div>
 
-                <div className="card-buttons">
+                                <div className="card-buttons">
 
-                    <h5 className="card-warning">*Tool Name*</h5>
+                                    <h5 className="card-warning">*Tool Name*</h5>
 
-                    <button onClick={this.handleAddToolModal} 
-                            className="add-tool-menu-button cancel-button">
-                        Cancel
-                    </button>
+                                        <button onClick={this.handleAddToolModal} 
+                                                className="add-tool-menu-button cancel-button">
+                                            Cancel
+                                        </button>
 
-                    <button className="add-tool-menu-button submit-button">
-                        Submit
-                    </button>
-                </div>
-                </form>
+                                        <button className="add-tool-menu-button submit-button">
+                                            Submit
+                                        </button>
+                                </div>
+                            </form>
                 </ReactModal>
             </div>
         )

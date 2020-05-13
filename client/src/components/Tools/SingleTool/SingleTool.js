@@ -9,6 +9,7 @@ class SingleTool extends React.Component {
     super(props);
         this.state = {
             showToolModal: false,
+            roNumber: ''
         };
 
         this.handleCloseToolModal = this.handleCloseToolModal.bind(this);
@@ -97,6 +98,18 @@ class SingleTool extends React.Component {
         }
     }
 
+    //onChange = (e) => {
+    //    e.preventDefault();
+    //    console.log(this.state.roNumber)
+     //   this.props.handleRoNumber(this.state.roNumber)
+    //}
+    handleSubmit = e => {
+        e.preventDefault();
+        const tool = this.props.tool
+        const newTool = {...tool, roNumber : this.state.roNumber}
+        this.props.handleRoNumber(newTool)
+    }
+
     render() {
         const { _id, toolName, roNumber, scancurrent, prescan, postscan, error, paired } = this.props.tool;
 
@@ -140,8 +153,21 @@ class SingleTool extends React.Component {
                 </button>
 
                 <div className="tool-attribute-modal">
+                    <form onSubmit={this.handleSubmit}
+                        className="roNumber-form">
 
-                    <h4 className="roNumber-modal">{roNumber} RO Number</h4>
+                        <h4 className="roNumber-modal">
+                            <h4 className="roNumber-modal">RO Number:</h4>
+                            <input type="text"
+                                className="ro-input"
+                                placeholder={roNumber}
+                                value={this.props.roNumber}
+                                key={this.props.tool}
+                                onChange={(e) => this.setState({roNumber: e.target.value})} 
+                                />
+                        
+                        <button className="submit-button-modal">Submit</button></h4>
+                    </form>
 
                     <h4 style={this.preScanTag()} 
                         className="prescan-tag-modal">PreScan</h4>

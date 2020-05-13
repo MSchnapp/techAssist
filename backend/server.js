@@ -20,7 +20,7 @@ const router = express.Router();
 
 const dbRoute = 'mongodb+srv://mschnapp:Astech0099!@techAssist-3kix2.mongodb.net/tools?retryWrites=true&w=majority';
 
-mongoose.connect(dbRoute, { useNewUrlParser: true, useFindAndModify: false});
+mongoose.connect(dbRoute, { useNewUrlParser: true, useFindAndModify: false,  useUnifiedTopology: true });
 
 let db = mongoose.connection;
 
@@ -47,9 +47,11 @@ router.put('/updateScanType', (req, res) => {
     const {tool} = req.body
     Tools.findOneAndUpdate({_id: tool._id},
                            {$set: {prescan: tool.prescan,
-                                   postscan: tool.postscan}},
+                                   postscan: tool.postscan,
+                                   roNumber: tool.roNumber}},
                                    (err, updatedTool) => {
                                      console.log(updatedTool, "Updated")
+                                     console.log(tool.roNumber)
                                      if(err) {
                                        console.log("update")
                                        return res.json({success: false, error: 'Unable to update'})}
@@ -105,24 +107,25 @@ router.delete('/deleteTool', (req, res) => {
     Tools.deleteOne({_id}, (err, tool) => {
       if (err) return console.log(err, 'err!')
         console.log(tool, 'Tool Deleted!')
-          return res.json({ success: true});
+          return res.json({ success: true });
     });
     console.log("Deleted")
   });
 
 router.post('/createTool', (req, res) => {
     let tools = new Tools();
-    const { toolName, roNumber, scancurrent, prescan, postscan, paired, error } = req.body;
+    const { toolName, roNumber, scancurrent, errorID, prescan, postscan, paired, error } = req.body;
     if (!toolName) {
       return res.json({ success: false, error: 'Please enter tool name.'});
     }
-      tools.toolName = toolName
+      tools.toolName = toolName;
       tools.roNumber = roNumber;
       tools.prescan= prescan;
       tools.postscan = postscan;
       tools.error = error;
       tools.paired = paired;
       tools.scancurrent = scancurrent;
+      tools.errorID = errorID;
       tools.save((err, tool) => {
           if (err) return res.json({ success: false, error: err });
             console.log("No error, saving tool successful!");

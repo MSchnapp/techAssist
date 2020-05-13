@@ -10,6 +10,9 @@ const toolSchema = new Schema(
         prescan: Boolean,
         postscan: Boolean,
         paired: Boolean,
+        errorNumber: Number,
+        vin: String,
+        errorID: Number,
     },
     {timestamps: true}
 );
